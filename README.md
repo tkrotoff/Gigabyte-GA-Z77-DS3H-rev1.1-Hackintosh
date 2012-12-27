@@ -14,4 +14,4 @@ Check:
 - ALC887/888b Current
 - TRIM Enabler (if you own a SSD disk)
 - Atheros - Shailua's ALXEthernet
-- GraphicsEnabler=No (if you own a Geforce GT640)
+- GraphicsEnabler=No (if you own a Nvidia GeForce GT 640)
