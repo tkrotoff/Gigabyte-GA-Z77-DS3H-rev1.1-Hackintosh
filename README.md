@@ -1,6 +1,6 @@
 # Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh
 
-Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard.
+Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard using OS X 10.8.2 Mountain Lion.
 
 Intel Z77 chipset.
 
@@ -31,6 +31,8 @@ Sources:
 - [Huge News! Gigabyte UEFI Sleep/Wake with NO DSDT! [TESTING]](http://www.tonymacx86.com/buying-advice/49446-huge-news-gigabyte-uefi-sleep-wake-no-dsdt-testing.html)
 
 ## MultiBeast
+
+Using version 5.2.1.
 
 Check:
 
