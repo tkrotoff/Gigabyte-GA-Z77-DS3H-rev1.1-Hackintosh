@@ -20,7 +20,7 @@ Sources:
 Latest BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/product-page.aspx?pid=4326#bios)
 
 - SATA Mode Selection - **AHCI**
-- Intel Virtualization Technology - **Disabled** (see https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1)
+- Intel Virtualization Technology - **Disabled** (or add kernel flag [`dart=0`](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1))
 
 ## DSDT
 
