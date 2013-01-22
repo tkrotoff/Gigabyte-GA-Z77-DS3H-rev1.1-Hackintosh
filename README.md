@@ -19,14 +19,14 @@ Sources:
 
 Latest BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/product-page.aspx?pid=4326#bios)
 
-- SATA Mode Selection - **AHCI**
-- Intel Virtualization Technology - **Disabled** (or add kernel flag [`dart=0`](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1))
-- VT-d - **Disabled**  (or add kernel flag `dart=0`)
+- Peripherals / SATA Mode Selection - **AHCI**
+- BIOS Features / Intel Virtualization Technology - **Disabled** (or add kernel flag [`dart=0`](#1))
+- BIOS Features / VT-d - **Disabled** (or add kernel flag `dart=0`)
 
 Note: [Intel Virtualization Technology (VT-x)](http://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29)
 is supported by almost every Intel [Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge_%28microarchitecture%29)
 and [Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_%28microarchitecture%29) processors.
-This is not case for [I/O MMU virtualization (VT-d)](http://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_VT-d.29).
+This is not the case for [I/O MMU virtualization (VT-d)](http://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_VT-d.29).
 
 ## DSDT
 
