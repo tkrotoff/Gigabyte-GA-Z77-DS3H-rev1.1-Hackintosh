@@ -48,7 +48,7 @@ Using version 5.3.0.
 Check:
 
 - UserDSDT or DSDT-Free Installation
-- Audio / Realtek ALC8xx / Without DSDT / ALC887/888b / Current
+- Audio / Realtek ALC8xx / Without DSDT / ALC887/888b / Current ([mute does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/3))
 - Disk / TRIM Enabler (if you own a SSD disk)
 - Network / Atheros - Shailua's ALXEthernet
 - Boot Options / GraphicsEnabler=No (if you own a natively supported GPU like the Nvidia GeForce GT 640)
@@ -64,6 +64,15 @@ Sources:
 ## Remarks
 
 - If you want to boot on a [4K Advanced Format hard disk](http://en.wikipedia.org/wiki/Advanced_Format), check [How to fix the boot0 error for your Hackintosh](http://www.macbreaker.com/2012/02/hackintosh-boot0-error.html)
+
+## Tricks
+
+### Fix copy-pasted kexts inside /System/Library/Extensions (S/L/E)
+
+```
+sudo chown -R root:wheel MyKext.kext # owner: root, group: wheel
+sudo chmod -R 755 MyKext.kext        # user: r+w+x, group: r+x, world: r+x
+```
 
 ## License
 
