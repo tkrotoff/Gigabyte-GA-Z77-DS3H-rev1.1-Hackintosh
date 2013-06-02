@@ -32,6 +32,7 @@ This is not the case for [I/O MMU virtualization (VT-d)](http://en.wikipedia.org
 Sources:
 
 - [How to set up the UEFI of your Hackintosh's Gigabyte motherboard](http://www.macbreaker.com/2012/08/set-up-hackintosh-gigabyte-uefi.html)
+- [Gigabyte Z77-DS3H Hackintosh - BIOS Settings](http://myhackmac.blogspot.fr/p/bios-settings.html)
 
 ## DSDT
 
