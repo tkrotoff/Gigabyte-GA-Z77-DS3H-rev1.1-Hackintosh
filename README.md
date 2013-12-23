@@ -1,6 +1,6 @@
 # Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh
 
-Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard using OS X 10.8.3 Mountain Lion.  
+Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard using OS X 10.8.5 Mountain Lion.  
 This is a minimal guide that fits my hardware configuration.
 
 Intel Z77 chipset.  
@@ -44,14 +44,14 @@ Sources:
 
 ## MultiBeast
 
-Using version 5.3.0.
+Using version 5.5.5.
 
 Check:
 
 - UserDSDT or DSDT-Free Installation
-- Audio / Realtek ALC8xx / Without DSDT / ALC887/888b / Current ([mute does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/3))
+- Audio / Realtek ALC8xx / Without DSDT / ALC887/888b / Current (read this if you have get [metallic sound after a while](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/3))
 - Disk / TRIM Enabler (if you own a SSD disk)
-- Network / Atheros - Shailua's ALXEthernet
+- Network / Atheros - Shailua's ALXEthernet ([can provoke rare crashes](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/6))
 - Boot Options / GraphicsEnabler=No (if you own a natively supported GPU like the Nvidia GeForce GT 640)
 - Boot Options / Verbose Boot (if you want to see what's going on)
 
