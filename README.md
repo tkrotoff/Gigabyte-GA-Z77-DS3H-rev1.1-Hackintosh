@@ -49,7 +49,7 @@ Using version 5.5.5.
 Check:
 
 - UserDSDT or DSDT-Free Installation
-- Audio / Realtek ALC8xx / Without DSDT / ALC887/888b / Current (read this if you have get [metallic sound after a while](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/3))
+- Audio / Realtek ALC8xx / Without DSDT / ALC887/888b / Current (read this if you get [metallic sound after a while](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/3))
 - Disk / TRIM Enabler (if you own a SSD disk)
 - Network / Atheros - Shailua's ALXEthernet ([can provoke rare crashes](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/6))
 - Boot Options / GraphicsEnabler=No (if you own a natively supported GPU like the Nvidia GeForce GT 640)
@@ -74,6 +74,10 @@ Sources:
 sudo chown -R root:wheel MyKext.kext # owner: root, group: wheel
 sudo chmod -R 755 MyKext.kext        # user: r+w+x, group: r+x, world: r+x
 ```
+
+## Performance
+
+Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 13000 (multi-core).
 
 ## License
 
