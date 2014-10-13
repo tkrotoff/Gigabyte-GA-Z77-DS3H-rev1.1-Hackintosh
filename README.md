@@ -3,8 +3,8 @@
 Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard using OS X 10.8.5 Mountain Lion.  
 This is a minimal guide that fits my hardware configuration.
 
-Intel Z77 chipset.  
-Supports 3rd Gen. Intel 22nm CPUs and 2nd Gen. Intel Core CPUs (LGA1155 socket).
+Intel Z77 chipset, LGA1155 socket.  
+Supports 3rd gen. Intel Core CPUs ([22 nm - Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))) and 2nd gen. Intel Core CPUs ([32 nm - Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge)).
 
 Onboard devices:
 
