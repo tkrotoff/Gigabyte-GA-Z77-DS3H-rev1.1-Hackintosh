@@ -33,12 +33,12 @@ Sources:
 
 ## MultiBeast
 
-Using version 7.0.2.
+Using version 7.x
 
-Beside defaults, check:
+Beside defaults, check/uncheck:
 - Quick Start > DSDT Free
 - Drivers > Audio > Realtek ALCxxx > ALC887/888b Current
-- ~~Drivers > Disk > 3rd Party DATA~~
+- ~~Drivers > Disk > 3rd Party SATA~~
 - Drivers > Disk > TRIM Enabler (if you own a SSD disk)
 - ~~Drivers > Misc > USB 3.0 - Universal ([does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/8) for me - at least not all ports)~~
 - Drivers > Network > Atheros > AtherosE2200Ethernet
@@ -48,6 +48,7 @@ Sources:
 - [Success: Mountain Lion Gigabyte GA-Z77-DS3H, i5 3570k Ivy Bridge, 16GB](http://www.tonymacx86.com/user-builds/75407-success-mountain-lion-gigabyte-ga-z77-ds3h-i5-3570k-ivy-bridge-16gb.html)
 - [Loginfailed's Build - i7-3770k / GA-Z77-DS3H / 16GB RAM / 6850](http://www.tonymacx86.com/golden-builds/74578-loginfaileds-build-i7-3770k-ga-z77-ds3h-16gb-ram-6850-a.html)
 - [Gigabyte GA-Z77-DS3H Mac Install Guide](http://www.insanelymac.com/forum/topic/283293-gigabyte-ga-z77-ds3h-mac-install-guide/)
+- [Building a Hackintosh](http://www.savjee.be/2012/12/building-a-hackintosh/)
 - [Solution for Qualcomm Atheros AR816x, AR817x and Killer E220x](http://www.insanelymac.com/forum/topic/300056-solution-for-qualcomm-atheros-ar816x-ar817x-and-killer-e220x/)
 - [How to use Multibeast 7: a comprehensive guide for Yosemite](http://www.macbreaker.com/2014/11/how-to-use-multibeast-7-yosemite-guide.html)
 
@@ -93,7 +94,7 @@ Sources:
 
 ## Performance
 
-Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) ~13000 (multi-core), see issue #2.
+Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) ~13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
 
 ## License
 
