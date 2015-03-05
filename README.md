@@ -7,7 +7,7 @@ Intel Z77 chipset, LGA1155 socket.
 Supports 3rd gen. Intel Core CPUs ([22 nm - Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))) and 2nd gen. Intel Core CPUs ([32 nm - Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge)).
 
 Onboard devices:
-- Qualcomm Atheros AR8161 Gigabit Ethernet controller
+- Qualcomm Atheros AR8161 Gigabit Ethernet controller (DS3H rev1.0 has AR8151)
 - Realtek ALC887 audio chipset
 
 Sources:
