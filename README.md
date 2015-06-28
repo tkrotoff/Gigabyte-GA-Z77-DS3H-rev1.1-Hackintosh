@@ -19,7 +19,7 @@ Latest BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/p
 
 - Save & Exit > Load Optimized Defaults
 - Peripherals > SATA Mode Selection - **AHCI**
-- BIOS Features > Intel Virtualization Technology - **Disabled** (or add kernel flag [`dart=0`](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1))
+- BIOS Features > Intel Virtualization Technology - **Disabled** (or add kernel flag [`dart=0`](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1) to `/Extra/org.chameleon.Boot.plist`)
 - BIOS Features > VT-d - **Disabled** (or add kernel flag `dart=0`)
 
 Note: [Intel Virtualization Technology (VT-x)](http://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29)
@@ -43,6 +43,8 @@ Beside defaults, check/uncheck:
 - ~~Drivers > Misc > USB 3.0 - Universal ([does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/8) for me - at least not all ports)~~
 - Drivers > Network > Atheros > AtherosE2200Ethernet
 - Customize > Boot Options > Verbose Boot (if you want to see what's going on)
+
+Manually add kernel flag `UseMemDetect=No` to `/Extra/org.chameleon.Boot.plist` if "About This Mac" displays "0 MHz" for the memory.
 
 Sources:
 - [Success: Mountain Lion Gigabyte GA-Z77-DS3H, i5 3570k Ivy Bridge, 16GB](http://www.tonymacx86.com/user-builds/75407-success-mountain-lion-gigabyte-ga-z77-ds3h-i5-3570k-ivy-bridge-16gb.html)
@@ -80,8 +82,8 @@ LABEL=Windows\0407\040Boot none ntfs ro,noauto
 LABEL=HD502HJ none ntfs ro,noauto
 
 # Mount NTFS disk 'HD204UI' in read-write mode (experimental: at your own risk)
-# Option 'nobrowse' is mandatory and won't show the disk on your computer,
-# you will have to manually open /Volumes/HD204UI using the Finder or Disk Utility
+# Option 'nobrowse' is mandatory. You will have to manually open /Volumes/HD204UI
+# using the Finder or Disk Utility
 LABEL=HD204UI none ntfs rw,auto,nobrowse
 
 # Do not mount ExFAT disk 'WD20EZRX'
