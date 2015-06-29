@@ -4,7 +4,7 @@ Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/pr
 This is a minimal guide that fits my hardware configuration.
 
 Intel Z77 chipset, LGA1155 socket.  
-Supports 3rd gen. Intel Core CPUs ([22 nm - Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))) and 2nd gen. Intel Core CPUs ([32 nm - Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge)).
+Supports 3rd gen. ([22 nm - Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))) and 2nd gen. ([32 nm - Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge)) Intel Core CPUs.
 
 Onboard devices:
 - Qualcomm Atheros AR8161 Gigabit Ethernet controller (DS3H rev1.0 has AR8151)
@@ -41,8 +41,9 @@ Beside defaults, check/uncheck:
 - ~~Drivers > Disk > 3rd Party SATA~~
 - Drivers > Disk > TRIM Enabler (if you own a SSD disk)
 - ~~Drivers > Misc > USB 3.0 - Universal ([does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/8) for me - at least not all ports)~~
-- Drivers > Network > Atheros > AtherosE2200Ethernet
-- Customize > Boot Options > Verbose Boot (if you want to see what's going on)
+- Drivers > Network > Atheros > AtherosE2200Ethernet (see [issue #6]( https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/6))
+- Customize > Boot Options > Verbose Boot (if you want to see what's going on at boot time)
+- Customize > Boot Options > iMac > iMac 12,2 (see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2))
 
 Manually add kernel flag `UseMemDetect=No` to `/Extra/org.chameleon.Boot.plist` if "About This Mac" displays "0 MHz" for the memory.
 
@@ -53,6 +54,31 @@ Sources:
 - [Building a Hackintosh](http://www.savjee.be/2012/12/building-a-hackintosh/)
 - [Solution for Qualcomm Atheros AR816x, AR817x and Killer E220x](http://www.insanelymac.com/forum/topic/300056-solution-for-qualcomm-atheros-ar816x-ar817x-and-killer-e220x/)
 - [How to use Multibeast 7: a comprehensive guide for Yosemite](http://www.macbreaker.com/2014/11/how-to-use-multibeast-7-yosemite-guide.html)
+
+## iMac13,2 / SSDT
+
+Optional: if you want to use [iMac13,2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2) system definition instead of MacPro3,1 or iMac12,2, you will need to generate a SSDT for proper CPU power management (otherwise [Intel Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) won't work).
+
+```Shell
+curl -o ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/master/ssdtPRGen.sh
+chmod +x ssdtPRGen.sh
+./ssdtPRGen.sh
+```
+
+```
+[...]
+Do you want to copy ssdt.aml to /Extra/ssdt.aml? (y/n)? y
+```
+
+MultiBeast:
+- Customize > Boot Options > DropSSDT=Yes
+- ~~Customize > Boot Options > Generate CPU States~~
+- Customize > Boot Options > iMac > iMac 13,2
+
+Sources:
+- [Native Ivy Bridge CPU and GPU Power Management](http://www.tonymacx86.com/mountain-lion-desktop-support/86807-ml-native-ivy-bridge-cpu-gpu-power-management.html)
+- [ssdtPRGen.sh - Script to generate a SSDT for Power Management](https://github.com/Piker-Alpha/ssdtPRGen.sh)
+- [Documentation for Chimera's DropSSDT](http://www.tonymacx86.com/hp-probook-4530s/56487-documentation-chimeras-dropssdt.html)
 
 ## Tricks
 
