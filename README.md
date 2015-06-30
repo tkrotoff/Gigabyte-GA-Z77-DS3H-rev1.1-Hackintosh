@@ -43,7 +43,7 @@ Beside defaults, check/uncheck:
 - ~~Drivers > Misc > USB 3.0 - Universal ([does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/8) for me - at least not all ports)~~
 - Drivers > Network > Atheros > AtherosE2200Ethernet (see [issue #6]( https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/6))
 - Customize > Boot Options > Verbose Boot (if you want to see what's going on at boot time)
-- Customize > Boot Options > iMac > iMac 12,2 (see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2))
+- Customize > System Definitions > iMac > iMac 12,2 (see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2))
 
 Manually add kernel flag `UseMemDetect=No` to `/Extra/org.chameleon.Boot.plist` if "About This Mac" displays "0 MHz" for the memory.
 
@@ -59,21 +59,22 @@ Sources:
 
 Optional: if you want to use [iMac13,2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2) system definition instead of MacPro3,1 or iMac12,2, you will need to generate a SSDT for proper CPU power management (otherwise [Intel Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) won't work).
 
+MultiBeast:
+- Customize > Boot Options > DropSSDT=Yes
+- ~~Customize > Boot Options > Generate CPU States~~
+- Customize > System Definitions > iMac > iMac 13,2
+
+SSDT generation:  
+Needs to be performed after system definition has been changed to iMac13,2 + a reboot
 ```Shell
 curl -o ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/master/ssdtPRGen.sh
 chmod +x ssdtPRGen.sh
 ./ssdtPRGen.sh
-```
-
-```
 [...]
 Do you want to copy ssdt.aml to /Extra/ssdt.aml? (y/n)? y
+[...]
+sudo reboot
 ```
-
-MultiBeast:
-- Customize > Boot Options > DropSSDT=Yes
-- ~~Customize > Boot Options > Generate CPU States~~
-- Customize > Boot Options > iMac > iMac 13,2
 
 Sources:
 - [Native Ivy Bridge CPU and GPU Power Management](http://www.tonymacx86.com/mountain-lion-desktop-support/86807-ml-native-ivy-bridge-cpu-gpu-power-management.html)
