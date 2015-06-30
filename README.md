@@ -15,7 +15,7 @@ Sources:
 
 ## BIOS Settings
 
-Latest BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/product-page.aspx?pid=4326#bios)
+Latest stable BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/product-page.aspx?pid=4326#bios)
 
 - Save & Exit > Load Optimized Defaults
 - Peripherals > SATA Mode Selection - **AHCI**
@@ -83,6 +83,8 @@ Sources:
 
 ## Tricks
 
+If the system does not boot (crash), pass `-s` (single user mode) flag to get a prompt, see [Chameleon boot help](http://forge.voodooprojects.org/p/chameleon/source/tree/HEAD/trunk/doc/BootHelp.txt).
+
 ### 4K Advanced Format hard disk
 
 To boot on a [4K Advanced Format hard disk](http://en.wikipedia.org/wiki/Advanced_Format), check [How to fix the boot0 error for your Hackintosh](http://www.macbreaker.com/2012/02/hackintosh-boot0-error.html) and [boot0 Error: The Official Guide](http://www.tonymacx86.com/25-boot0-error-official-guide.html).
@@ -124,6 +126,15 @@ Sources:
 ## Performance
 
 Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) ~13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
+
+## Other tools and links
+
+- /usr/sbin/bdmesg: displays Chameleon/Chimera boot messages
+- [HWMonitor/HWSensors](https://github.com/kozlek/HWSensors): display information from hardware sensors (requires MultiBeast Drivers > Misc > FakeSMC Plugins)
+- [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet): most up to date and stable driver for Qualcomm Atheros AR8161 Ethernet controller
+- [audio_RealtekALC](https://github.com/toleda/audio_RealtekALC): OS X Realtek ALC onboard audio with Chameleon/Chimera
+- [Chameleon project page](http://forge.voodooprojects.org/p/chameleon/)
+- [Clover EFI bootloader project page](http://sourceforge.net/projects/cloverefiboot/)
 
 ## License
 
