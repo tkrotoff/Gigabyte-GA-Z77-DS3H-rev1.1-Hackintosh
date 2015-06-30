@@ -67,7 +67,7 @@ MultiBeast:
 SSDT generation:  
 Needs to be performed after system definition has been changed to iMac13,2 + a reboot
 ```Shell
-curl -o ssdtPRGen.sh https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/master/ssdtPRGen.sh
+curl -O https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/master/ssdtPRGen.sh
 chmod +x ssdtPRGen.sh
 ./ssdtPRGen.sh
 [...]
