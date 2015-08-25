@@ -40,7 +40,6 @@ Beside defaults, check/uncheck:
 - Drivers > Audio > Realtek ALCxxx > ALC887/888b Current
 - ~~Drivers > Disk > 3rd Party SATA~~
 - Drivers > Disk > TRIM Enabler (if you own a SSD disk)
-- ~~Drivers > Misc > USB 3.0 - Universal ([does not work](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/8) for me - at least not all ports)~~
 - Drivers > Network > Atheros > AtherosE2200Ethernet (see [issue #6]( https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/6))
 - Customize > Boot Options > Verbose Boot (if you want to see what's going on at boot time)
 - Customize > System Definitions > iMac > iMac 12,2 (see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2))
