@@ -16,7 +16,6 @@ Sources:
 ## BIOS Settings
 
 Latest stable BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/product-page.aspx?pid=4326#bios)
-
 - Save & Exit > Load Optimized Defaults
 - Peripherals > SATA Mode Selection - **AHCI**
 - BIOS Features > Intel Virtualization Technology - **Disabled** (or add kernel flag [`dart=0`](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1) to `/Extra/org.chameleon.Boot.plist`)
@@ -59,7 +58,6 @@ Sources:
 Optional: if you want to use [iMac13,2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2) system definition instead of MacPro3,1 or iMac12,2, you will need to generate a SSDT for proper CPU power management (otherwise [Intel Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) won't work).
 
 MultiBeast:
-- Customize > Boot Options > DropSSDT=Yes
 - ~~Customize > Boot Options > Generate CPU States~~
 - Customize > System Definitions > iMac > iMac 13,2
 
@@ -124,7 +122,7 @@ Sources:
 
 ## Performance
 
-Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) ~13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
+Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) > 13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
 
 ## Other tools and links
 
