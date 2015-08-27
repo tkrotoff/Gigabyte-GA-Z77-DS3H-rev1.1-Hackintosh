@@ -132,6 +132,8 @@ Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score
 - [audio_RealtekALC](https://github.com/toleda/audio_RealtekALC): OS X Realtek ALC onboard audio with Chameleon/Chimera
 - [Chameleon project page](http://forge.voodooprojects.org/p/chameleon/)
 - [Clover EFI bootloader project page](http://sourceforge.net/projects/cloverefiboot/)
+- [DPCIManager](http://sourceforge.net/projects/dpcimanager/): list the PCI devices attached to your machine
+- [Chameleon Wizard](http://www.insanelymac.com/forum/topic/257464-chameleon-wizard-utility-for-chameleon): utility for Chameleon (closed source application)
 
 ## License
 
