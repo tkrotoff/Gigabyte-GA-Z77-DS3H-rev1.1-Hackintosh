@@ -78,9 +78,15 @@ Sources:
 - [ssdtPRGen.sh - Script to generate a SSDT for Power Management](https://github.com/Piker-Alpha/ssdtPRGen.sh)
 - [Documentation for Chimera's DropSSDT](http://www.tonymacx86.com/hp-probook-4530s/56487-documentation-chimeras-dropssdt.html)
 
+## Performance
+
+Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) > 13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
+
 ## Tricks
 
-If the system does not boot (crash), pass `-s` (single user mode) flag to get a prompt, see [Chameleon boot help](http://forge.voodooprojects.org/p/chameleon/source/tree/HEAD/trunk/doc/BootHelp.txt).
+### Boot flags
+
+If the system does not boot (crash), flags `-v` (verbose), `-x` (safe mode), `-f` (ignore caches) and `-s` (single user mode - gives you a Unix shell) can help, see [Chameleon boot help](http://forge.voodooprojects.org/p/chameleon/source/tree/HEAD/trunk/doc/BootHelp.txt).
 
 ### 4K Advanced Format hard disk
 
@@ -112,10 +118,6 @@ LABEL=WD20EZRX none exfat rw,noauto
 Sources:
 - [Write in NTFS using Mavericks](http://apple.stackexchange.com/a/112990)
 - [Prevent a partition from mounting in OS X](http://www.cnet.com/how-to/prevent-a-partition-from-mounting-in-os-x/)
-
-## Performance
-
-Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) > 13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
 
 ## Other tools and links
 
