@@ -86,13 +86,6 @@ If the system does not boot (crash), pass `-s` (single user mode) flag to get a 
 
 To boot on a [4K Advanced Format hard disk](http://en.wikipedia.org/wiki/Advanced_Format), check [How to fix the boot0 error for your Hackintosh](http://www.macbreaker.com/2012/02/hackintosh-boot0-error.html) and [boot0 Error: The Official Guide](http://www.tonymacx86.com/25-boot0-error-official-guide.html).
 
-### Fix copy-pasted kexts inside /System/Library/Extensions (S/L/E)
-
-```Shell
-sudo chown -R root:wheel MyKext.kext # owner: root, group: wheel
-sudo chmod -R 755 MyKext.kext        # user: r+w+x, group: r+x, world: r+x
-```
-
 ### Prevent OS X from mounting a volume
 
 ```Shell
