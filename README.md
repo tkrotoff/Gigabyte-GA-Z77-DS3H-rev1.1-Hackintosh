@@ -55,7 +55,7 @@ Sources:
 
 ## iMac13,2 / SSDT
 
-Optional: if you want to use [iMac13,2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2) system definition instead of MacPro3,1 or iMac12,2, you will need to generate a SSDT for proper CPU power management (otherwise [Intel Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) won't work).
+If you have a Ivy Bridge processor you probably want to use [iMac13,2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2) system definition instead of MacPro3,1 or iMac12,2. You will need to generate a SSDT for proper CPU power management (otherwise [Intel Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) won't work).
 
 MultiBeast:
 - ~~Customize > Boot Options > Generate CPU States~~
