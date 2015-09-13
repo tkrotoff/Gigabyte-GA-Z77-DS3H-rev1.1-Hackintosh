@@ -92,6 +92,10 @@ If the system does not boot (crash), flags `-v` (verbose), `-x` (safe mode), `-f
 
 To boot on a [4K Advanced Format hard disk](http://en.wikipedia.org/wiki/Advanced_Format), check [How to fix the boot0 error for your Hackintosh](http://www.macbreaker.com/2012/02/hackintosh-boot0-error.html) and [boot0 Error: The Official Guide](http://www.tonymacx86.com/25-boot0-error-official-guide.html).
 
+### EBIOS read error
+
+The "EBIOS read error" at boot time is provoked by a connected USB memory card reader, check [EBIOS read error: Error 0x31 Block 0x0 Sectors 0](http://www.tonymacx86.com/general-help/69139-ebios-read-error-error-0x31-block-0x0-sectors-0-a-2.html#post505858).
+
 ### Prevent OS X from mounting a volume
 
 ```Shell
