@@ -50,6 +50,7 @@ Sources:
 - [Loginfailed's Build - i7-3770k / GA-Z77-DS3H / 16GB RAM / 6850](http://www.tonymacx86.com/golden-builds/74578-loginfaileds-build-i7-3770k-ga-z77-ds3h-16gb-ram-6850-a.html)
 - [Gigabyte GA-Z77-DS3H Mac Install Guide](http://www.insanelymac.com/forum/topic/283293-gigabyte-ga-z77-ds3h-mac-install-guide/)
 - [Building a Hackintosh](http://www.savjee.be/2012/12/building-a-hackintosh/)
+- [Hackintosh: Z77-DS3H, i5-3570K, GTX 660 Ti](http://virtuallyhyper.com/2013/11/hackintosh-z77-ds3h-i5-3570k-gtx-660-ti/)
 - [Solution for Qualcomm Atheros AR816x, AR817x and Killer E220x](http://www.insanelymac.com/forum/topic/300056-solution-for-qualcomm-atheros-ar816x-ar817x-and-killer-e220x/)
 - [How to use Multibeast 7: a comprehensive guide for Yosemite](http://www.macbreaker.com/2014/11/how-to-use-multibeast-7-yosemite-guide.html)
 
