@@ -3,7 +3,7 @@
 Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard using OS X 10.10 Yosemite.  
 This is a minimal guide that fits my hardware configuration.
 
-Intel Z77 chipset, LGA1155 socket.  
+[Intel Z77 chipset](https://ark.intel.com/products/64024/Intel-Z77-Express-Chipset), LGA1155 socket.  
 Supports 3rd gen. ([22 nm - Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))) and 2nd gen. ([32 nm - Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge)) Intel Core CPUs.
 
 Onboard devices:
