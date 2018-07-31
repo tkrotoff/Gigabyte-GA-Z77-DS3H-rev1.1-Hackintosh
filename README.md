@@ -1,165 +1,72 @@
-# Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh
+# Gigabyte GA-Z77-DS3H rev1.1 Hackintosh
 
-Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](http://www.gigabyte.com/products/product-page.aspx?pid=4326) motherboard using OS X 10.10 Yosemite.  
-This is a minimal guide that fits my hardware configuration.
+Hackintosh for [Gigabyte GA-Z77-DS3H rev1.1](https://www.gigabyte.com/Motherboard/GA-Z77-DS3H-rev-11#ov) motherboard using macOS Monterey (version 12).
 
-[Intel Z77 chipset](https://ark.intel.com/products/64024), [LGA 1155 socket](https://en.wikipedia.org/wiki/LGA_1155).  
-Supports 3rd gen. ([22 nm - Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture))) and 2nd gen. ([32 nm - Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge)) Intel Core CPUs.
+macOS Monterey is the last version that works for non-[AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#Advanced_Vector_Extensions_2) CPUs.
+
+[Intel Z77 chipset](https://ark.intel.com/content/www/us/en/ark/products/64024/intel-z77-express-chipset.html), [LGA 1155 socket](https://en.wikipedia.org/wiki/LGA_1155).
+Supports 3rd gen. ([22 nm - Ivy Bridge](<https://en.wikipedia.org/wiki/Ivy_Bridge_(microarchitecture)>)) and 2nd gen. ([32 nm - Sandy Bridge](https://en.wikipedia.org/wiki/Sandy_Bridge)) Intel Core CPUs.
 
 Onboard devices:
+
 - Qualcomm Atheros AR8161 Gigabit Ethernet controller (DS3H rev1.0 has AR8151)
 - Realtek ALC887 audio chipset
 
-Sources:
-- [AR8161 LAN on new MoBo revisions (ga-z77-ds3h and ga-h77-ds3h, others)](http://www.tonymacx86.com/desktop-compatibility/77447-ar8161-lan-new-mobo-revisions-ga-z77-ds3h-ga-h77-ds3h-others.html)
+This is a minimal guide that fits my hardware configuration:
+
+- [Intel Core i7-3770](https://ark.intel.com/content/www/us/en/ark/products/65719/intel-core-i73770-processor-8m-cache-up-to-3-90-ghz.html)
+- [Sapphire NITRO+ RX 580 8G G5](https://www.sapphiretech.com/en/consumer/nitro-rx-580-8g-g5)
+- [802.11ac WiFi card Broadcom BCM94360CD](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/10)
+- [SSD Crucial MX500](https://www.crucial.com/ssd/mx500/ct2000mx500ssd1)
+
+## OpenCore documentation
+
+https://dortania.github.io/OpenCore-Install-Guide/
+
+https://dortania.github.io/docs/release/Configuration.html
+
+Check comments in [EFI/OC/config.plist](EFI/OC/config.plist)
+
+⚠️ Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to change SystemSerialNumber, MLB, SystemUUID, ROM in Root > PlatformInfo > Generic
+
+Similar systems:
+
+- Z77-DS3H rev1.0: https://www.tonymacx86.com/threads/robbishs-8yr-old-atx-ivybridge-hackintosh-ga-z77-ds3h-i5-3570k-hd-4000-opencore-macos-big-sur.311037/
+- Z77-DS3H rev?: https://www.insanelymac.com/forum/topic/348196-z77-ds3h-opencore-073-monterey-beta-3-perfect-install
+- Z77X-D3H: https://github.com/nickw444/opencore-efi-z77
 
 ## BIOS Settings
 
-Latest stable BIOS: version [F9 (2012/09/27 update)](http://www.gigabyte.com/products/product-page.aspx?pid=4326#bios)
+[BIOS](https://www.gigabyte.com/Motherboard/GA-Z77-DS3H-rev-11/support#support-dl-bios): F9 (2012/09/27 latest stable), F11a (2013/11/13 latest beta - recommended)
+
 - Save & Exit > Load Optimized Defaults
-- Peripherals > SATA Mode Selection - AHCI
-- BIOS Features > Intel Virtualization Technology - Disabled (or add kernel flag [`dart=0`](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/1) to `/Extra/org.chameleon.Boot.plist`)
-- BIOS Features > VT-d - Disabled (or add kernel flag `dart=0`)
+- BIOS Features
+  - Fast Boot > _Disabled_
+  - Execute Disable Bit > _Enabled_
+  - Intel Virtualization Technology (i.e. VT-x) > _Enabled_ (default is Disabled)
+  - VT-d > _Disabled_ (default is Enabled) (Enabled if DisableIoMapper is true in config.plist)
+  - OS Type > _Windows 8 WHQL_ (default is Other OS)
+  - CSM Support > _Never_ (default is Always)
+  - Secure Boot > _Disabled_
+- Peripherals
+  - SATA Mode Selection > _AHCI_ (default is IDE)
+  - XHCI Pre-Boot Driver > Enabled
+  - xHCI Mode > _Enabled_ (default is Smart Auto)
+  - Internal Graphics > _Disabled_ (default is Auto)
+  - Intel Rapid Start Technology > _Disabled_
+  - Legacy USB Support > Disabled (default is Enabled)
+  - XHCI Hand-off > _Enabled_
+  - EHCI Hand-off > _Enabled_ (default is Disabled)
+  - Port 60/64 Emulation > Disabled
+  - Trusted Computing > TPM Support > _Disable_
+  - Super IO Configuration > Serial Port A > _Disabled_
 
-Note: [Intel Virtualization Technology (VT-x)](http://en.wikipedia.org/wiki/X86_virtualization#Intel_virtualization_.28VT-x.29)
-is supported by almost every Intel [Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge_%28microarchitecture%29)
-and [Ivy Bridge](http://en.wikipedia.org/wiki/Ivy_Bridge_%28microarchitecture%29) processors.
-This is not the case for [I/O MMU virtualization (VT-d)](http://en.wikipedia.org/wiki/X86_virtualization#I.2FO_MMU_virtualization_.28AMD-Vi_and_VT-d.29).
+## Mount EFI
 
-Sources:
-- [How to set up the UEFI of your Hackintosh's Gigabyte motherboard](http://www.macbreaker.com/2012/08/set-up-hackintosh-gigabyte-uefi.html)
-- [BIOS/UEFI Screenshots - Gigabyte Z77X-UP5-TH](http://www.tonymacx86.com/bios-uefi/130888-bios-uefi-screenshots-gigabyte-z77x-up5-th.html)
-
-## DSDT
-
-My tests (sleep, wake, shutdown...) have concluded that there is no need to generate a patched `DSDT.aml` file.
-
-Sources:
-- [How to edit your own DSDT with MaciASL](http://www.macbreaker.com/2014/03/how-to-edit-your-own-dsdt-with-maciasl.html)
-- [Creating a DSDT using MaciASL](http://pjalm.com/forums/index.php?topic=3.0)
-- [Fork of MaciASL by RehabMan](https://github.com/RehabMan/OS-X-MaciASL-patchmatic)
-- [Gigabyte DSDT patches repository for MaciASL by PJALM](http://maciasl.sourceforge.net/pjalm/gigabyte/) ([available files](http://maciasl.sourceforge.net/pjalm/gigabyte/.maciasl))
-
-## MultiBeast
-
-Using version 7.x
-
-Beside defaults, check/uncheck:
-- Quick Start > DSDT Free
-- Drivers > Audio > Realtek ALCxxx > ALC887/888b Current
-- ~~Drivers > Disk > 3rd Party SATA~~
-- Drivers > Disk > TRIM Enabler (if you own a SSD disk with OS X < 10.10.4) / `sudo trimforce enable` (with OS X ≥ 10.10.4)
-- Drivers > Network > Atheros > AtherosE2200Ethernet (see [issue #6]( https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/6))
-- Customize > Boot Options > Verbose Boot (if you want to see what's going on at boot time)
-- Customize > System Definitions > iMac > iMac 12,2 (see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2))
-
-Manually add kernel flag `UseMemDetect=No` to `/Extra/org.chameleon.Boot.plist` if "About This Mac" displays "0 MHz" for the memory.
-
-Sources:
-- [Success: Mountain Lion Gigabyte GA-Z77-DS3H, i5 3570k Ivy Bridge, 16GB](http://www.tonymacx86.com/user-builds/75407-success-mountain-lion-gigabyte-ga-z77-ds3h-i5-3570k-ivy-bridge-16gb.html)
-- [Loginfailed's Build - i7-3770k / GA-Z77-DS3H / 16GB RAM / 6850](http://www.tonymacx86.com/golden-builds/74578-loginfaileds-build-i7-3770k-ga-z77-ds3h-16gb-ram-6850-a.html)
-- [Gigabyte GA-Z77-DS3H Mac Install Guide](http://www.insanelymac.com/forum/topic/283293-gigabyte-ga-z77-ds3h-mac-install-guide/)
-- [Building a Hackintosh](http://www.savjee.be/2012/12/building-a-hackintosh/)
-- [Hackintosh: Z77-DS3H, i5-3570K, GTX 660 Ti](http://virtuallyhyper.com/2013/11/hackintosh-z77-ds3h-i5-3570k-gtx-660-ti/)
-- [Solution for Qualcomm Atheros AR816x, AR817x and Killer E220x](http://www.insanelymac.com/forum/topic/300056-solution-for-qualcomm-atheros-ar816x-ar817x-and-killer-e220x/)
-- [How to use Multibeast 7: a comprehensive guide for Yosemite](http://www.macbreaker.com/2014/11/how-to-use-multibeast-7-yosemite-guide.html)
-
-## iMac13,2 / SSDT
-
-If you have a Ivy Bridge processor you probably want to use [iMac13,2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2) system definition instead of MacPro3,1 or iMac12,2. You will need to generate a SSDT for proper CPU power management (otherwise [Intel Turbo Boost](https://en.wikipedia.org/wiki/Intel_Turbo_Boost) won't work).
-
-MultiBeast:
-- ~~Customize > Boot Options > Generate CPU States~~
-- Customize > System Definitions > iMac > iMac 13,2
-
-SSDT generation:  
-Needs to be performed after system definition has been changed to iMac13,2 + a reboot
-```Shell
-curl -O https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/master/ssdtPRGen.sh
-chmod +x ssdtPRGen.sh
-./ssdtPRGen.sh
-[...]
-Do you want to copy ssdt.aml to /Extra/ssdt.aml? (y/n)? y
-[...]
-sudo reboot
 ```
-
-Sources:
-- [Native Ivy Bridge CPU and GPU Power Management](http://www.tonymacx86.com/mountain-lion-desktop-support/86807-ml-native-ivy-bridge-cpu-gpu-power-management.html)
-- [ssdtPRGen.sh - Script to generate a SSDT for Power Management](https://github.com/Piker-Alpha/ssdtPRGen.sh)
-- [Documentation for Chimera's DropSSDT](http://www.tonymacx86.com/hp-probook-4530s/56487-documentation-chimeras-dropssdt.html)
-
-## Performance
-
-Using [Geekbench](http://www.primatelabs.com/geekbench/), you should get a score (Intel Core i7-3770 @ 3.40 GHz) > 3000 (single-core) > 13000 (multi-core), see [issue #2](https://github.com/tkrotoff/Gigabyte-GA-Z77-DS3H-rev1.1-Hackintosh/issues/2).
-
-## Tricks
-
-### Boot flags
-
-If the system does not boot (crash), flags `-v` (verbose), `-x` (safe mode), `-f` (ignore caches) and `-s` (single user mode - gives you a Unix shell) can help, see [Chameleon boot help](http://forge.voodooprojects.org/p/chameleon/source/tree/HEAD/trunk/doc/BootHelp.txt).
-
-### 4K Advanced Format hard disk
-
-To boot on a [4K Advanced Format hard disk](http://en.wikipedia.org/wiki/Advanced_Format), check [How to fix the boot0 error for your Hackintosh](http://www.macbreaker.com/2012/02/hackintosh-boot0-error.html) and [boot0 Error: The Official Guide](http://www.tonymacx86.com/25-boot0-error-official-guide.html).
-
-### EBIOS read error
-
-The "EBIOS read error" at boot time is provoked by a connected USB memory card reader, check [EBIOS read error: Error 0x31 Block 0x0 Sectors 0](http://www.tonymacx86.com/general-help/69139-ebios-read-error-error-0x31-block-0x0-sectors-0-a-2.html#post505858).
-
-### Prevent OS X from mounting a volume
-
-```Shell
-sudo vifs
-```
-
-Example:
-```
-# Do not mount NTFS disk 'Windows 7 Boot'
-LABEL=Windows\0407\040Boot none ntfs ro,noauto
-
-# Do not mount NTFS disk 'HD502HJ'
-LABEL=HD502HJ none ntfs ro,noauto
-
-# Mount NTFS disk 'HD204UI' in read-write mode (experimental: at your own risk)
-# Option 'nobrowse' is mandatory. You will have to manually open /Volumes/HD204UI
-# using the Finder or Disk Utility
-LABEL=HD204UI none ntfs rw,auto,nobrowse
-
-# Do not mount ExFAT disk 'WD20EZRX'
-LABEL=WD20EZRX none exfat rw,noauto
-```
-
-Sources:
-- [Write in NTFS using Mavericks](http://apple.stackexchange.com/a/112990)
-- [Prevent a partition from mounting in OS X](http://www.cnet.com/how-to/prevent-a-partition-from-mounting-in-os-x/)
-
-### Create a bootable Windows 10 USB key
-
-```Shell
-hdiutil convert -format UDRW -o Win10.img /PATH/Win10_XXX.iso
 diskutil list
-diskutil unmountDisk /dev/diskXXX
-sudo dd if=Win10.img.dmg of=/dev/diskXXX bs=1m
-sudo dd if=Downloads/Win10_1607_SingleLang_French_x64.iso of=/dev/rdisk5 bs=1m
-diskutil eject /dev/diskXXX
+sudo diskutil mount disk0s1
 ```
-
-Sources:
-- [Creating A Bootable USB Of Windows 8.1 On OS X?](http://apple.stackexchange.com/q/103874/150369)
-- [How to create a bootable Windows 10 USB in OS X using Terminal](https://www.tonymacx86.com/threads/how-to-create-a-bootable-windows-10-usb-in-os-x-using-terminal.172458/page-3#post-1317152)
-- [Creating a Windows 7 USB installation disk on a Mac](http://superuser.com/q/133152/505295)
-
-## Other tools and links
-
-- /usr/sbin/bdmesg: displays Chameleon/Chimera boot messages
-- [HWMonitor/HWSensors](https://github.com/kozlek/HWSensors): display information from hardware sensors (requires MultiBeast Drivers > Misc > FakeSMC Plugins)
-- [AtherosE2200Ethernet](https://github.com/Mieze/AtherosE2200Ethernet): most up to date and stable driver for Qualcomm Atheros AR8161 Ethernet controller
-- [audio_RealtekALC](https://github.com/toleda/audio_RealtekALC): OS X Realtek ALC onboard audio with Chameleon/Chimera
-- [Chameleon project page](http://forge.voodooprojects.org/p/chameleon/)
-- [Clover EFI bootloader project page](http://sourceforge.net/projects/cloverefiboot/)
-- [DPCIManager](http://sourceforge.net/projects/dpcimanager/): list the PCI devices attached to your machine
-- [Chameleon Wizard](http://www.insanelymac.com/forum/topic/257464-chameleon-wizard-utility-for-chameleon): utility for Chameleon (closed source application)
 
 ## License
 
