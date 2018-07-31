@@ -134,6 +134,22 @@ Sources:
 - [Write in NTFS using Mavericks](http://apple.stackexchange.com/a/112990)
 - [Prevent a partition from mounting in OS X](http://www.cnet.com/how-to/prevent-a-partition-from-mounting-in-os-x/)
 
+### Create a bootable Windows 10 USB key
+
+```Shell
+hdiutil convert -format UDRW -o Win10.img /PATH/Win10_XXX.iso
+diskutil list
+diskutil unmountDisk /dev/diskXXX
+sudo dd if=Win10.img.dmg of=/dev/diskXXX bs=1m
+sudo dd if=Downloads/Win10_1607_SingleLang_French_x64.iso of=/dev/rdisk5 bs=1m
+diskutil eject /dev/diskXXX
+```
+
+Sources:
+- [Creating A Bootable USB Of Windows 8.1 On OS X?](http://apple.stackexchange.com/q/103874/150369)
+- [How to create a bootable Windows 10 USB in OS X using Terminal](https://www.tonymacx86.com/threads/how-to-create-a-bootable-windows-10-usb-in-os-x-using-terminal.172458/page-3#post-1317152)
+- [Creating a Windows 7 USB installation disk on a Mac](http://superuser.com/q/133152/505295)
+
 ## Other tools and links
 
 - /usr/sbin/bdmesg: displays Chameleon/Chimera boot messages
