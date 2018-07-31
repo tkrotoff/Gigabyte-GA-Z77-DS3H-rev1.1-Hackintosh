@@ -1,42 +1,56 @@
-# Maintained by: PJALM (help@pjalm.com) for: http://maciasl.sourceforge.net/pjalm/
+# Maintained by: PJALM (help@pjalm.com) for: http://pjalm.com/repos/
 
 # These patches are the registered property of PJALM.COM and can not be
 # redistributed or modified without the written consent of PJALM.COM.
-# Links to these patches are allowed.
+# Links to these patches are allowed. All material is protected under the DMCA.
 
-# Last Updated  : 07/11/2015
+# Last Updated  : 05/07/2016
 # Patch Name    : Z77-DS3H
 # Patch Version : 1.02
 # Note          : Please apply a graphics patch after applying this patch, available from the graphics repository.
+
+#External Fixes
+into_all all code_regex \/\*\sExternal\sreference\s\*\/\s+ removeall_matched;
+into definitionblock code_regex ,\sUnknownObj removeall_matched;
+
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG0\)\s+ removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG0.PEGP\)\s+ removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG1\)\s+ removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEG2\)\s+ removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEGP\)\s+ removeall_matched;
+into definitionblock code_regex External\s\(_SB_.PCI0.PEGP.GFX0\)\s+ removeall_matched;
 
 # Add the DTGP method
 into method label DTGP remove_entry;
 into definitionblock code_regex . insert begin
 Method (DTGP, 5, NotSerialized)\n
 {\n
-	If (LEqual (Arg0, Buffer (0x10)\n
-		{\n
-			/* 0000 */	0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,\n
-			/* 0008 */	0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
-		}))\n
-	{\n
-		If (LEqual (Arg1, One)) {\n
-			If (LEqual (Arg2, Zero)) {\n
-				Store (Buffer (One) { 0x03 }, Arg4)\n
-				Return (One)\n
-			}\n
-			If (LEqual (Arg2, One)) {\n
-				Return (One)\n
-			}\n
-		}\n
-	}\n
+    If (LEqual (Arg0, Buffer (0x10)\n
+            {\n
+                /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,\n
+                /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
+            }))\n
+    {\n
+        If (LEqual (Arg1, One))\n
+        {\n
+            If (LEqual (Arg2, Zero))\n
+            {\n
+                Store (Buffer (One) { 0x03 }, Arg4)\n
+                Return (One)\n
+            }\n
+            If (LEqual (Arg2, One))\n
+            {\n
+                Return (One)\n
+            }\n
+        }\n
+    }\n
 	Store (Buffer (One) { 0x00 }, Arg4)\n
-	Return (Zero)\n
+    Return (Zero)\n
 }
 end;
 
 # Add Darwin to the supported operating systems
-into method label _INI code_regex \{(\s+)(If\s\(_OSI\s\("Windows\s2001"\)\)) replace_matched begin  {\n
+into method label _INI code_regex (\s+)(If\s\(_OSI\s\("Windows\s2001"\)\)) replace_matched begin  \n
 						If (_OSI ("Darwin"))\n
 						{\n
 							Store (0x2710, OSYS)\n
@@ -60,6 +74,24 @@ into_all all code_regex (Acquire\s\(MUT0,\s0x)....\) replace_matched begin %1FFF
 into_all all code_regex pnp0c14 replaceall_matched begin PNP0C14 end;
 into method label _CRS parent_label PCI0 code_regex CreateDWordField\s\(BUF0,\s\\_SB.PCI0._Y0F._LEN,\sMSLN\) replace_matched begin CreateQWordField (BUF0, \\_SB.PCI0._Y0F._LEN, MSLN) end;
 
+## Method _DOD in GFX0
+into method label _DOD parent_label GFX0 code_regex ([\s\S]*) store_%8;
+into method label _DOD parent_label GFX0 remove_entry;
+into device label GFX0 insert begin Method (_DOD, 0, Serialized)\n{\n\n} end;
+into method label _DOD parent_label GFX0 code_regex .* replace_matched begin %8 end;
+
+## Method RRIO in definitionblock
+into method label RRIO code_regex ([\s\S]*) store_%8;
+into method label RRIO remove_entry;
+into definitionblock code_regex . insert begin Method (RRIO, 4, Serialized)\n{\n\n} end;
+into method label RRIO code_regex .* replace_matched begin %8 end;
+
+## Method UXDV in definitionblock
+into method label UXDV code_regex ([\s\S]*) store_%8;
+into method label UXDV remove_entry;
+into definitionblock code_regex . insert begin Method (UXDV, 1, Serialized)\n{\n\n} end;
+into method label UXDV code_regex .* replace_matched begin %8 end;
+
 # Fix TPM
 into method label _HID parent_label _SB.PCI0.LPCB.TPM code_regex (Return\s\(Zero\)\s*) removeall_matched;
 into method label _HID parent_label _SB.PCI0.LPCB.TPM insert begin Return (Zero) end;
@@ -76,6 +108,7 @@ into method label _DSM parent_label _SB.PCI0.ITPM remove_entry;
 into device Label _SB.PCI0.ITPM insert begin Method (_DSM, 4, Serialized)\n{\n} end;
 into method label _DSM parent_label _SB.PCI0.ITPM code_regex .* replace_matched begin %8 end;
 
+into method label _CRS parent_label TPMX code_regex Return\s\(Zero\) replace_matched begin Return (Buffer(Zero) {}) end;
 # Add the missing MCHC device
 into device label MCHC parent_label PCI0 remove_entry;
 into device label PCI0 insert begin
@@ -186,7 +219,8 @@ into method label _DSM parent_label EHC1 remove_entry;
 into device label EHC1 insert begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-	Store (Package (0x15) {\n
+	Store (Package (0x17) {\n
+		"AAPL,clock-id", Buffer (One) { 0x02 },\n
 		"AAPL,slot-name", "Built In",\n
 		"name", "Intel EHCI Controller",\n
 		"model", Buffer(0x3E) {"Intel 7 Series Chipset Family USB Enhanced Host Controller #1"},\n
@@ -209,7 +243,8 @@ into method label _DSM parent_label EHC2 remove_entry;
 into device label EHC2 insert begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-	Store (Package (0x15) {\n
+	Store (Package (0x17) {\n
+		"AAPL,clock-id", Buffer (One) { 0x02 },\n
 		"AAPL,slot-name", "Built In",\n
 		"name", "Intel EHCI Controller",\n
 		"model", Buffer (0x3E) {"Intel 7 Series Chipset Family USB Enhanced Host Controller #2"},\n
@@ -228,14 +263,12 @@ Method (_DSM, 4, NotSerialized)\n
 end;
 
 #Fix XHC1
-into device label XHC set_label begin XHC1 end;
-into_all all code_regex XHC(?=\W) replaceall_matched begin XHC1 end;
-into method label P_CS code_regex \\_SB\.PCI0\.XHC1\.DUAM replaceall_matched begin \\_SB.PCI0.XHC.DUAM end;
-into method label _DSM parent_label XHC1 remove_entry;
-into device label XHC1 insert begin
+into method label _DSM parent_label XHC remove_entry;
+into device label XHC insert begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
-	Store (Package (0x15) {\n
+	Store (Package (0x17) {\n
+		"AAPL,clock-id", Buffer (One) { 0x02 },\n
 		"AAPL,slot-name", "Built In",\n
 		"name", "Intel XHCI Controller",\n
 		"model", Buffer (0x37) {"Intel 7 Series Chipset Family USB xHCI Host Controller"},\n
@@ -638,8 +671,9 @@ Method (EHCD, 0, NotSerialized)\n
 \n
 Method (_DSM, 4, NotSerialized)\n
 {\n
-	Store (Package (0x15)\n
+	Store (Package (0x17)\n
 		{\n
+			"AAPL,clock-id", Buffer (One) { 0x02 },\n
 			"AAPL,slot-name", "Built In",\n
 			"name", "Intel xHCI Controller",\n
 			"model", "Intel 7 Series Chipset Family USB xHCI Host Controller",\n
