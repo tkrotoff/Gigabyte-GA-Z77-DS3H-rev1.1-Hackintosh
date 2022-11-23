@@ -1,6 +1,7 @@
-[GA-Z77-DS3H BIOS F11 mod (rev1.0 and 1.1)](https://forums.tweaktown.com/gigabyte/48085-gigabyte-modified-bios-post462867.html#post462867)
+[GA-Z77-DS3H BIOS F11 mod (rev1.0 and 1.1)](https://www.tweaktownforum.com/forum/tech-support-from-vendors/gigabyte/48290-gigabyte-modified-bios?p=694681#post694681)
 
 Modified with :
+
 - Intel Legacy RAID for SATA 11.6.0.1702 to 12.7.0.1936
 - Intel UEFI RAID SataDriver 11.6.0.1702 to 12.7.0.1936
 - Atheros PCIE Ethernet Controller 2.0.2.7 to 2.0.6.6
