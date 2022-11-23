@@ -24,14 +24,6 @@
 				<key>Path</key>
 				<string>SSDT-EC-DESKTOP.aml</string>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-IMEI.aml - https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#desktop-sandy-and-ivy-bridge</string>
-				<key>Enabled</key>
-				<false/>
-				<key>Path</key>
-				<string>SSDT-IMEI.aml</string>
-			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
