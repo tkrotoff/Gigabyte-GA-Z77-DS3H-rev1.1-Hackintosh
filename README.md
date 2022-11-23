@@ -61,6 +61,73 @@ Similar systems:
   - Trusted Computing > TPM Support > _Disable_
   - Super IO Configuration > Serial Port A > _Disabled_
 
+## USB Mapping
+
+https://github.com/corpnewt/USBMap
+
+[EFI/OC/Kexts/USBMap.kext](EFI/OC/Kexts/USBMap.kext/Contents/Info.plist)
+
+```
+  #######################################################
+ #                  Edit USB Ports                     #
+#######################################################
+
+    ----- XHC@14 Controller -----
+[#]  1. HS01 | AppleUSB20XHCIPort |  1 (01000000) | 14100000 | Type 3
+    Front4 USB3
+    - Microsoft® LifeCam HD-5000
+[#]  2. HS02 | AppleUSB20XHCIPort |  2 (02000000) | 14200000 | Type 3
+    Front3 USB3
+    - Microsoft® LifeCam HD-5000
+[#]  3. HS03 | AppleUSB20XHCIPort |  3 (03000000) | 14300000 | Type 3
+    Back3 USB3
+    - Microsoft® LifeCam HD-5000
+[#]  4. HS04 | AppleUSB20XHCIPort |  4 (04000000) | 14400000 | Type 3
+    Back4 USB3
+    - Microsoft® LifeCam HD-5000
+    ----- EH02@1A Controller -----
+[#]  5. PRT1 | AppleUSBEHCIPort |  1 (01000000) | 1a100000 | Type 0
+    - AppleUSB20Hub (HUB-1a100000)
+    ----- HUB-1a100000 Controller -----
+[#]  6. AppleUSB20HubPort | AppleUSB20HubPort |  1 (01000000) | 1a110000 | Type 0
+    - BRCM20702 Hub
+        - AppleUSB20Hub
+            - AppleUSB20HubPort
+                - Bluetooth USB Host Controller
+[ ]  7. AppleUSB20HubPort | AppleUSB20HubPort |  2 (02000000) | 1a120000 | Type 0
+[#]  8. AppleUSB20HubPort | AppleUSB20HubPort |  3 (03000000) | 1a130000 | Type 0
+    Back2 USB2
+    - Microsoft® LifeCam HD-5000
+[#]  9. AppleUSB20HubPort | AppleUSB20HubPort |  4 (04000000) | 1a140000 | Type 0
+    Back1 USB2
+    - AppleUSB20Hub (HUB-1a140000)
+[#] 10. AppleUSB20HubPort | AppleUSB20HubPort |  5 (05000000) | 1a150000 | Type 0
+    Back5 USB2
+    - Microsoft® LifeCam HD-5000
+[#] 11. AppleUSB20HubPort | AppleUSB20HubPort |  6 (06000000) | 1a160000 | Type 0
+    Back6 USB2
+    - Microsoft® LifeCam HD-5000
+    ----- EH01@1D Controller -----
+[#] 12. PRT1 | AppleUSBEHCIPort |  1 (01000000) | 1d100000 | Type 0
+    - AppleUSB20Hub (HUB-1d100000)
+    ----- HUB-1d100000 Controller -----
+[ ] 13. AppleUSB20HubPort | AppleUSB20HubPort |  1 (01000000) | 1d110000 | Type 0
+[ ] 14. AppleUSB20HubPort | AppleUSB20HubPort |  2 (02000000) | 1d120000 | Type 0
+[ ] 15. AppleUSB20HubPort | AppleUSB20HubPort |  3 (03000000) | 1d130000 | Type 0
+[ ] 16. AppleUSB20HubPort | AppleUSB20HubPort |  4 (04000000) | 1d140000 | Type 0
+[#] 17. AppleUSB20HubPort | AppleUSB20HubPort |  5 (05000000) | 1d150000 | Type 0
+    Front2 USB2
+    - Microsoft® LifeCam HD-5000
+[#] 18. AppleUSB20HubPort | AppleUSB20HubPort |  6 (06000000) | 1d160000 | Type 0
+    Front1 USB2
+    - Microsoft® LifeCam HD-5000
+[ ] 19. AppleUSB20HubPort | AppleUSB20HubPort |  7 (07000000) | 1d170000 | Type 0
+[ ] 20. AppleUSB20HubPort | AppleUSB20HubPort |  8 (08000000) | 1d180000 | Type 0
+
+Populated:
+XHC: 4, EH02: 1, HUB-1a100000: 5, EH01: 1, HUB-1d100000: 2
+```
+
 ## Mount EFI
 
 ```
