@@ -413,8 +413,10 @@
 			<string>*</string>
 			<key>SysReport</key>
 			<false/>
+			<key>Comment</key>
+			<string>67 to show more debug information, generates log files opencore-XXXX-XX-XX-XXXXXX.txt</string>
 			<key>Target</key>
-			<integer>67</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Entries</key>
 		<array/>
