@@ -128,6 +128,16 @@ Populated:
 XHC: 4, EH02: 1, HUB-1a100000: 5, EH01: 1, HUB-1d100000: 2
 ```
 
+## SSDT
+
+```
+curl -O https://raw.githubusercontent.com/Piker-Alpha/ssdtPRGen.sh/Beta/ssdtPRGen.sh
+chmod +x ssdtPRGen.sh
+./ssdtPRGen.sh -target 1 # 1 = Ivy Bridge
+[...]
+cp ~/Library/ssdtPRGen/ssdt.aml EFI/OC/ACPI/SSDT-PM.aml
+```
+
 ## Mount EFI
 
 ```

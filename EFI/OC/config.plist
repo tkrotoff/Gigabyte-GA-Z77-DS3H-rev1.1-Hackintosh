@@ -10,17 +10,25 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-EC-DESKTOP.aml</string>
+				<string>SSDT-PM.aml - generated with ssdtPRGen</string>
 				<key>Enabled</key>
 				<true/>
+				<key>Path</key>
+				<string>SSDT-PM.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-EC-DESKTOP.aml - https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#desktop-sandy-and-ivy-bridge</string>
+				<key>Enabled</key>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-EC-DESKTOP.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-IMEI.aml</string>
+				<string>SSDT-IMEI.aml - https://dortania.github.io/Getting-Started-With-ACPI/ssdt-methods/ssdt-prebuilt.html#desktop-sandy-and-ivy-bridge</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-IMEI.aml</string>
 			</dict>
@@ -33,7 +41,7 @@
 				<key>All</key>
 				<true/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1UG0AAAA=</data>
 				<key>TableLength</key>
@@ -47,7 +55,7 @@
 				<key>All</key>
 				<true/>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>OemTableId</key>
 				<data>Q3B1MElzdAA=</data>
 				<key>TableLength</key>
