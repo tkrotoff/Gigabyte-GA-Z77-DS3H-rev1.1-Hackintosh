@@ -465,14 +465,14 @@
 				<integer>0</integer>
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
-				<key>Comment</key>
+				<key>Comment boot-args</key>
 				<string>alcid: audio layout for Z77-DS3H with Realtek ALC887</string>
 				<key>boot-args</key>
 				<string>-v keepsyms=1 debug=0x100 alcid=1</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
-				<key>Comment</key>
-				<string>Force U.S. English (en:252 - ABC) macOS installer with value 656e3a323532 (ZW46MjUy in ASCII) for prev-lang:kbd</string>
+				<key>Comment prev-lang:kbd</key>
+				<string>Force U.S. English (en:252 - ABC) macOS installer with value 656e3a323532 (ZW46MjUy in ASCII)</string>
 				<key>prev-lang:kbd</key>
 				<data>ZW46MjUy</data>
 				<key>run-efi-updater</key>
