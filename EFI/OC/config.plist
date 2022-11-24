@@ -466,9 +466,9 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>Comment boot-args</key>
-				<string>alcid: audio layout for Z77-DS3H with Realtek ALC887</string>
+				<string>alcid: audio layout for Z77-DS3H with Realtek ALC887-VD</string>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 alcid=1</string>
+				<string>-v keepsyms=1 debug=0x100 alcid=12</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>Comment prev-lang:kbd</key>

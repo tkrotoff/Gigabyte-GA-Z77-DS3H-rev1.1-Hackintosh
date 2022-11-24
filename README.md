@@ -10,7 +10,7 @@ Supports 3rd gen. ([22 nm - Ivy Bridge](<https://en.wikipedia.org/wiki/Ivy_Bridg
 Onboard devices:
 
 - Qualcomm Atheros AR8161 Gigabit Ethernet controller (DS3H rev1.0 has AR8151)
-- Realtek ALC887 audio chipset
+- Realtek ALC887-VD audio chipset
 
 This is a minimal guide that fits my hardware configuration:
 
@@ -139,6 +139,48 @@ chmod +x ssdtPRGen.sh
 [...]
 cp ~/Library/ssdtPRGen/ssdt.aml EFI/OC/ACPI/SSDT-PM.aml
 ```
+
+## Audio
+
+Realtek ALC887-VD (my version identification is C5D69G1 GC26**D**2 and matches ALC887-VD)
+
+"The ALC887-VD is an upgraded version of the ALC887 [...]"
+
+Motherboard manual:
+
+- Line In Jack (Blue)
+
+  The default line in jack. Use this audio jack for line in devices such as an optical drive, walkman, etc.
+
+- Line Out Jack (Green)
+
+  The default line out jack. Use this audio jack for a headphone or 2-channel speaker.
+  This jack can be used to connect front speakers in a 4/5.1/7.1-channel audio configuration.
+
+- Mic In Jack (Pink)
+
+  The default Mic in jack. Microphones must be connected to this jack.
+
+[Possible layouts](https://github.com/acidanthera/AppleALC/blob/1.7.6/Resources/ALC887/Info.plist):
+
+- 1 "Toleda ALC887, 5/6 audio ports, native: 2 inputs, 3/4 outputs+front panel+SPDIF/Optical"
+- 2 "Toleda ALC887, 3 audio ports, repurposed to 5.1: 0 inputs, 3 outputs+front panel+SPDIF/Optical"
+- 3 "Toleda ALC887, 3 audio ports, native: 2 inputs, 1 output+front panel+SPDIF/Optical"
+- 5 "Mirone 3 ports (Pink, Green, Blue)" => not bad, Sound Preferences: Internal Speakers + Digital Out
+- 7 "Mirone 5/6 ports (Gray, Black, Orange, Pink, Green, Blue)"
+- 11 "InsanelyDeepak - Realtek ALC887VD", ["3 ports supported (Pink, Green, Blue) (Note : without auto-switch, you have to manually select between output/input device's)"](https://www.insanelymac.com/forum/files/file/371-realtek-alc887-vd-cloverhda-patched-applehda-for-mac-os-sierra/) => headphones selected by default
+- 12 "Realtek ALC887-VD for ASUS H81M-D by VictorXu" => perfect: motherboard has 3 ports, Sound Preferences: Internal Speakers (+ Internal Microphone and Line In)
+- 13 "InsanelyDeepak - Realtek ALC887VD", "5/6 ports supported (Grey, Black, Laranja, Pink, Green, Blue)"
+- 17 "InsanelyDeepak - Realtek ALC887VD", "5/6 ports supported (Grey, Black, Laranja, Pink, Green, Blue)"
+- 18 "InsanelyDeepak - Realtek ALC887VD", "5/6 ports supported (Grey, Black, Laranja, Pink, Green, Blue)"
+- 20 "Realtek 887-VD AD0 for Asus Z97M-PLUS/BR by maiconjs" => motherboard has 6 ports instead of 3
+- 33 "Custom by klblk for GA-Q87TN" => motherboard has 2 ports instead of 3
+- 40 "Realtek 887-VD for Asus B85-ME by maiconjs" => headphones selected by default
+- 50 "0th3r ALC887 for PRIME B250-PLUS" => headphones selected by default
+- 52 "ALC887 for Asus PRIME Z270-P (full Rear and Front, non auto-switch) by ctich" => headphones selected by default
+- 53 "ALC887 for Asus PRIME Z270-P (Rear LineOut1, Mic - LineOut2, LineIn - LineOut3 - 5.1 and Front, non auto-switch) by ctich" => headphones selected by default
+- 87 "Realtek ALC887-VD GA-Z97 HD3 ver2.1 by varrtix" => motherboard has 6 ports instead of 3
+- 99 "Custom by Constanta" => not bad, Sound Preferences: Internal Speakers + Digital Out
 
 ## Mount EFI
 
