@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
+	<key>#Comment</key>
 	<string>OpenCore-0.8.6-DEBUG/Docs/Sample.plist + https://dortania.github.io/OpenCore-Install-Guide/config.plist/ivy-bridge.html</string>
 	<key>ACPI</key>
 	<dict>
@@ -376,7 +376,7 @@
 			<string>*</string>
 			<key>SysReport</key>
 			<false/>
-			<key>Comment</key>
+			<key>#Comment</key>
 			<string>67 to show more debug information, generates log files opencore-XXXX-XX-XX-XXXXXX.txt</string>
 			<key>Target</key>
 			<integer>3</integer>
@@ -536,7 +536,7 @@
 		<false/>
 		<key>Generic</key>
 		<dict>
-			<key>Comment</key>
+			<key>#Comment</key>
 			<string>MacPro6,1 (instead of iMac13,2) because of macOS Monterey, use GenSMBIOS to generate unique SystemSerialNumber, MLB, SystemUUID</string>
 			<key>AdviseFeatures</key>
 			<false/>
