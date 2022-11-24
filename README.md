@@ -29,6 +29,8 @@ Check comments in [EFI/OC/config.plist](EFI/OC/config.plist)
 
 ⚠️ Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to change SystemSerialNumber, MLB, SystemUUID, ROM in Root > PlatformInfo > Generic
 
+Configuration validation: `./ocvalidate EFI/OC/config.plist`
+
 Similar systems:
 
 - Z77-DS3H rev1.0: https://www.tonymacx86.com/threads/robbishs-8yr-old-atx-ivybridge-hackintosh-ga-z77-ds3h-i5-3570k-hd-4000-opencore-macos-big-sur.311037/
