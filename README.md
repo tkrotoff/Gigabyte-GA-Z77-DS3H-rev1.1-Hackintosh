@@ -182,6 +182,12 @@ Motherboard manual:
 - 87 "Realtek ALC887-VD GA-Z97 HD3 ver2.1 by varrtix" => motherboard has 6 ports instead of 3
 - 99 "Custom by Constanta" => not bad, Sound Preferences: Internal Speakers + Digital Out
 
+## TRIM
+
+https://github.com/dortania/bugtracker/issues/298
+
+`sudo trimforce enable`
+
 ## Mount EFI
 
 ```

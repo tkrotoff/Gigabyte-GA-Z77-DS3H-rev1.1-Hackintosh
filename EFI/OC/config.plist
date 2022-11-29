@@ -308,8 +308,10 @@
 			<false/>
 			<key>ProvideCurrentCpuInfo</key>
 			<false/>
+			<key>#Comment SetApfsTrimTimeout</key>
+			<string>https://github.com/dortania/bugtracker/issues/298</string>
 			<key>SetApfsTrimTimeout</key>
-			<integer>-1</integer>
+			<integer>60000000</integer>
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
