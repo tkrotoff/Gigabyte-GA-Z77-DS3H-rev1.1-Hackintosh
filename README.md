@@ -49,6 +49,7 @@ Similar systems:
   - VT-d > _Disabled_ (default is Enabled) (Enabled if DisableIoMapper is true in config.plist)
   - OS Type > _Windows 8 WHQL_ (default is Other OS)
   - CSM Support > _Never_ (default is Always)
+  - Network stack > _Disabled_ (can interfere with [AtherosE2200Ethernet.kext](https://github.com/Mieze/AtherosE2200Ethernet/blob/3ca53759c0011680cb74276124201335f613a99a/README.md#troubleshooting))
   - Secure Boot > _Disabled_
 - Peripherals
   - SATA Mode Selection > _AHCI_ (default is IDE)
@@ -186,6 +187,17 @@ Motherboard manual:
 
 - [Intel HD Graphics 4000 not supported with macOS > 11.x Big Sur](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#intel-hd-graphics-25004000-ivy-bridge-processors)
 - [AMD Radeon RX 580 does not need WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen/blob/e5e2055de7594ccf4254a0dded66fbafad1f85ea/Manual/FAQ.Radeon.en.md): works OOB
+
+## Network
+
+- Broadcom BCM94360CD: works out of the box
+- Qualcomm Atheros AR8161: https://github.com/Mieze/AtherosE2200Ethernet
+
+```
+git clone https://github.com/Mieze/AtherosE2200Ethernet.git
+xcodebuild -project AtherosE2200Ethernet/AtherosE2200Ethernet.xcodeproj
+cp -R AtherosE2200Ethernet/build/Release/AtherosE2200Ethernet.kext EFI/OC/Kexts
+```
 
 ## TRIM
 
