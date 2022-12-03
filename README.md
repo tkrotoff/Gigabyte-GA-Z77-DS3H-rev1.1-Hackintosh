@@ -182,6 +182,11 @@ Motherboard manual:
 - 87 "Realtek ALC887-VD GA-Z97 HD3 ver2.1 by varrtix" => motherboard has 6 ports instead of 3
 - 99 "Custom by Constanta" => not bad, Sound Preferences: Internal Speakers + Digital Out
 
+## Graphics
+
+- [Intel HD Graphics 4000 not supported with macOS > 11.x Big Sur](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#intel-hd-graphics-25004000-ivy-bridge-processors)
+- [AMD Radeon RX 580 does not need WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen/blob/e5e2055de7594ccf4254a0dded66fbafad1f85ea/Manual/FAQ.Radeon.en.md): works OOB
+
 ## TRIM
 
 https://github.com/dortania/bugtracker/issues/298
