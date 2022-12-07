@@ -34,7 +34,7 @@ Configuration validation: `./ocvalidate EFI/OC/config.plist`
 Similar systems:
 
 - Z77-DS3H rev1.0: https://www.tonymacx86.com/threads/robbishs-8yr-old-atx-ivybridge-hackintosh-ga-z77-ds3h-i5-3570k-hd-4000-opencore-macos-big-sur.311037/
-- Z77-DS3H rev?: https://www.insanelymac.com/forum/topic/348196-z77-ds3h-opencore-073-monterey-beta-3-perfect-install
+- Z77-DS3H rev1.1: https://www.insanelymac.com/forum/topic/348196-z77-ds3h-opencore-073-monterey-beta-3-perfect-install
 - Z77X-D3H: https://github.com/nickw444/opencore-efi-z77
 
 ## BIOS Settings
