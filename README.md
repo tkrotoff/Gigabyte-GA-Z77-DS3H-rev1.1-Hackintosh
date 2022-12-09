@@ -212,6 +212,13 @@ diskutil list
 sudo diskutil mount disk0s1
 ```
 
+## Windows keyboard
+
+System Preferences > Keyboard > Modifier Keys
+
+&emsp;&ensp;Option (⌥) Key:&emsp;⌘ Command\
+Command (⌘) Key:&emsp;⌥ Option
+
 ## License
 
 Do whatever you like, this is public domain.
