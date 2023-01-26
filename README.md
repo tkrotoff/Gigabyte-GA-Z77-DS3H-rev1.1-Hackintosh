@@ -25,6 +25,8 @@ https://dortania.github.io/OpenCore-Install-Guide/
 
 https://dortania.github.io/docs/release/Configuration.html
 
+https://github.com/acidanthera/VirtualSMC/blob/1.3.0/Docs/FAQ.md
+
 Check comments in [EFI/OC/config.plist](EFI/OC/config.plist)
 
 ⚠️ Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to change SystemSerialNumber, MLB, SystemUUID, ROM in Root > PlatformInfo > Generic
@@ -185,7 +187,7 @@ Motherboard manual:
 
 ## Graphics
 
-- [Intel HD Graphics 4000 not supported with macOS > 11.x Big Sur](https://github.com/acidanthera/WhateverGreen/blob/master/Manual/FAQ.IntelHD.en.md#intel-hd-graphics-25004000-ivy-bridge-processors)
+- [Intel HD Graphics 4000 not supported with macOS > 11.x Big Sur](https://github.com/acidanthera/WhateverGreen/blob/e5e2055de7594ccf4254a0dded66fbafad1f85ea/Manual/FAQ.IntelHD.en.md#intel-hd-graphics-25004000-ivy-bridge-processors)
 - [AMD Radeon RX 580 does not need WhateverGreen.kext](https://github.com/acidanthera/WhateverGreen/blob/e5e2055de7594ccf4254a0dded66fbafad1f85ea/Manual/FAQ.Radeon.en.md): works OOB
 
 ## Network
